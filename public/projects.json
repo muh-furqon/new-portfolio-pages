@@ -1,0 +1,107 @@
+[
+  {
+    "id": "proj-01",
+    "title": "Data Viz Dashboard",
+    "image": "https://via.placeholder.com/800x450.png?text=Dashboard+UI",
+    "description": "A web-based dashboard using D3.js and React to visualize real-time sales data with interactive charts and graphs.",
+    "github": "https://github.com/your-username/data-viz-dashboard"
+  },
+  {
+    "id": "proj-02",
+    "title": "E-commerce REST API",
+    "image": "https://via.placeholder.com/800x450.png?text=API+Code",
+    "description": "A robust RESTful API built with Node.js, Express, and MongoDB for a modern e-commerce platform.",
+    "github": "https://github.com/your-username/ecommerce-api"
+  },
+  {
+    "id": "proj-03",
+    "title": "Mobile Chat App",
+    "image": "https://via.placeholder.com/800x450.png?text=Chat+App+Screenshot",
+    "description": "A cross-platform chat application developed with React Native and Firebase for real-time messaging.",
+    "github": null
+  },
+  {
+    "id": "proj-04",
+    "title": "Markdown Blog Platform",
+    "image": "https://via.placeholder.com/800x450.png?text=Blog+Homepage",
+    "description": "A responsive blog platform built with Next.js and styled with Tailwind CSS, using Markdown for posts.",
+    "github": "https://github.com/your-username/markdown-blog"
+  },
+  {
+    "id": "proj-05",
+    "title": "AI Image Generator",
+    "image": "https://via.placeholder.com/800x450.png?text=AI+Art",
+    "description": "A web app using Python and Flask that connects to the DALL-E API to generate images from text prompts.",
+    "github": "https://github.com/your-username/ai-image-generator"
+  },
+  {
+    "id": "proj-06",
+    "title": "Task Management Tool",
+    "image": "https://via.placeholder.com/800x450.png?text=Kanban+Board",
+    "description": "A Kanban-style task manager with drag-and-drop functionality, built with Vue.js and a lightweight backend.",
+    "github": null
+  },
+  {
+    "id": "proj-07",
+    "title": "Weather Forecast App",
+    "image": "https://via.placeholder.com/800x450.png?text=Weather+UI",
+    "description": "A clean weather app that fetches data from a third-party API to display current and future forecasts.",
+    "github": "https://github.com/your-username/weather-app"
+  },
+  {
+    "id": "proj-08",
+    "title": "URL Shortener Service",
+    "image": "https://via.placeholder.com/800x450.png?text=API+Service",
+    "description": "A backend service in Go that creates shortened URLs from long URLs, using Redis for storage.",
+    "github": "https://github.com/your-username/url-shortener"
+  },
+  {
+    "id": "proj-09",
+    "title": "iOS Recipe Finder",
+    "image": "https://via.placeholder.com/800x450.png?text=iOS+App",
+    "description": "An iOS application built with SwiftUI that helps users find recipes by ingredients using the MealDB API.",
+    "github": null
+  },
+  {
+    "id": "proj-10",
+    "title": "CI/CD Pipeline Visualizer",
+    "image": "https://via.placeholder.com/800x450.png?text=DevOps+Tool",
+    "description": "A developer tool to visualize complex CI/CD pipelines, built with Svelte and leveraging Docker for execution.",
+    "github": "https://github.com/your-username/ci-cd-visualizer"
+  },
+  {
+    "id": "proj-11",
+    "title": "Personal Finance Tracker",
+    "image": "https://via.placeholder.com/800x450.png?text=Finance+Tracker",
+    "description": "A Kotlin Multiplatform mobile app for tracking expenses and income across both Android and iOS.",
+    "github": "https://github.com/your-username/finance-tracker"
+  },
+  {
+    "id": "proj-12",
+    "title": "Real-time Stock Ticker",
+    "image": "https://via.placeholder.com/800x450.png?text=Stock+Graph",
+    "description": "A web application using WebSockets and FastAPI to display real-time stock price updates.",
+    "github": null
+  },
+  {
+    "id": "proj-13",
+    "title": "2D Platformer Game",
+    "image": "https://via.placeholder.com/800x450.png?text=Game+Screenshot",
+    "description": "A simple 2D platformer game with pixel art and physics, developed using the Godot game engine.",
+    "github": "https://github.com/your-username/godot-platformer"
+  },
+  {
+    "id": "proj-14",
+    "title": "Regex Testing Tool",
+    "image": "https://via.placeholder.com/800x450.png?text=Regex+Tool",
+    "description": "A web-based utility for testing regular expressions in real-time, built for performance with WebAssembly.",
+    "github": "https://github.com/your-username/regex-tester"
+  },
+  {
+    "id": "proj-15",
+    "title": "Code Snippet Manager",
+    "image": "https://via.placeholder.com/800x450.png?text=Snippet+Manager",
+    "description": "A desktop application using Electron and the Monaco Editor (from VS Code) for managing code snippets.",
+    "github": null
+  }
+]
