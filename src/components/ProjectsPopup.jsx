@@ -23,7 +23,9 @@ export default function ProjectsPopup({ onClose }) {
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
 
+  // ✨ 2. This function handles clicks on the backdrop
   const handleOutsideClick = (e) => {
+    // If the clicked element is the overlay itself, close the popup
     if (e.target.id === 'popup-overlay') {
       onClose();
     }
@@ -32,18 +34,28 @@ export default function ProjectsPopup({ onClose }) {
   return (
     <div
       id="popup-overlay"
-      onClick={handleOutsideClick}
+      onClick={handleOutsideClick} // The event handler is attached here
       className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 animate-fade-in"
     >
       <div className="bg-[#1e1e1e] w-full max-w-4xl h-[80vh] rounded-lg shadow-2xl flex flex-col font-mono text-sm">
         <header className="bg-[#3c3c3c] rounded-t-lg px-4 py-2 flex items-center justify-between text-gray-300">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-            <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
-            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+            <button
+              onClick={onClose}
+              className="w-3.5 h-3.5 bg-red-500 rounded-full flex items-center justify-center"
+            >
+              {/* ✨ 1. The opacity classes are removed to make the 'x' always visible */}
+              <span className="text-black/70 text-xs font-bold">
+                &times;
+              </span>
+            </button>
+            <span className="w-3.5 h-3.5 bg-yellow-500 rounded-full"></span>
+            <span className="w-3.5 h-3.5 bg-green-500 rounded-full"></span>
           </div>
+
           <span className="text-xs">projects.jsx - My Portfolio</span>
-          <button onClick={onClose} className="text-gray-400 hover:text-white">&times;</button>
+          
+          <div></div>{/* Spacer div */}
         </header>
 
         <div className="flex flex-grow min-h-0">
