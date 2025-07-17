@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
-// The list of all lines to be displayed in the boot sequence
 const bootLines = [
   'Booting FURQON.OS v1.0 (Kernel 20.25)...',
   '[ INFO ] Memory check: 16GB (8GB for code, 8GB for creativity).',
@@ -19,7 +17,6 @@ const bootLines = [
   '> Welcome.',
 ];
 
-// A helper function to parse and style each line
 const renderLine = (line) => {
   if (line.startsWith('[ OK ]')) {
     return (
@@ -41,33 +38,35 @@ const renderLine = (line) => {
 };
 
 export default function Loader({ onLoadingComplete }) {
-  // State to hold the lines that are currently visible
   const [visibleLines, setVisibleLines] = useState([]);
   const containerRef = useRef(null);
 
-  // This effect runs the animation sequence
   useEffect(() => {
-    let timeoutId;
-    const animationSequence = async () => {
-      // Use a for...of loop to add lines one by one
-      for (let i = 0; i < bootLines.length; i++) {
-        const line = bootLines[i];
-        // A random delay to make it feel more authentic
-        const delay = Math.random() * 150 + 50;
-        await new Promise(resolve => setTimeout(resolve, delay));
+    // 1. Create an array to hold all of our timer IDs
+    const timeoutIds = [];
+    
+    // 2. Schedule each line to appear with a staggered delay
+    bootLines.forEach((line, index) => {
+      const delay = 120 * (index + 1); // Stagger each line by 120ms
+      const id = setTimeout(() => {
         setVisibleLines(prevLines => [...prevLines, line]);
-      }
-      // Wait before calling the completion callback
-      await new Promise(resolve => setTimeout(resolve, 800));
+      }, delay);
+      timeoutIds.push(id);
+    });
+
+    // 3. Schedule the final "onLoadingComplete" call
+    const finalTimeoutId = setTimeout(() => {
       onLoadingComplete();
+    }, 120 * bootLines.length + 800);
+    timeoutIds.push(finalTimeoutId);
+
+    // 4. The cleanup function now clears every single scheduled timeout
+    return () => {
+      timeoutIds.forEach(id => clearTimeout(id));
     };
+  }, []); // The empty dependency array is correct
 
-    animationSequence();
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  // This effect handles auto-scrolling to the bottom
+  // This effect for auto-scrolling remains the same
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
@@ -77,7 +76,6 @@ export default function Loader({ onLoadingComplete }) {
   return (
     <motion.div
       ref={containerRef}
-      // Add the 'no-scrollbar' class here
       className="bg-black text-green-400 w-full h-screen p-4 md:p-8 font-mono text-sm md:text-base overflow-y-auto no-scrollbar"
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
