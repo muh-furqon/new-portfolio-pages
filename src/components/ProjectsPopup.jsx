@@ -88,15 +88,26 @@ export default function ProjectsPopup({ onClose }) {
                   {selectedProject.description}
                 </p>
                 {selectedProject.github && (
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
-                  >
-                    <GitHubIcon />
-                    View on GitHub
-                  </a>
+                  selectedProject.github === 'private' ? (
+                    // If github is "private", show a disabled-style button
+                    <span
+                      className="inline-flex items-center gap-2 bg-gray-800 text-gray-500 font-bold py-2 px-4 rounded cursor-not-allowed"
+                    >
+                      <GitHubIcon />
+                      Repository is Private
+                    </span>
+                  ) : (
+                    // Otherwise, if it's a URL, show the link
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
+                    >
+                      <GitHubIcon />
+                      View on GitHub
+                    </a>
+                  )
                 )}
               </div>
             ) : (

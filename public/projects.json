@@ -1,9 +1,9 @@
 [
   {
     "id": "proj-01",
-    "title": "Data Viz Dashboard",
-    "image": "https://via.placeholder.com/800x450.png?text=Dashboard+UI",
-    "description": "A web-based dashboard using D3.js and React to visualize real-time sales data with interactive charts and graphs.",
+    "title": "Prolearn.asia",
+    "image": "/images/prolearn.png",
+    "description": "An AI Project based e-learning platform that offers a variety of courses and resources to help individuals enhance their skills and knowledge in various fields.",
     "github": "https://github.com/your-username/data-viz-dashboard"
   },
   {
