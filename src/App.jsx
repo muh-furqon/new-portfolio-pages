@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import ProjectsPopup from './components/ProjectsPopup';
 import Loader from './components/Loader';
 import HeroSection from './components/HeroSection';
