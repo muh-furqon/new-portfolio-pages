@@ -1,25 +1,5 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-const featuredProjects = [
-  {
-    title: 'AI-Powered Chatbot',
-    description: 'A customer service chatbot using natural language processing to understand and respond to user queries in real-time.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470',
-    tags: ['Python', 'PyTorch', 'React'],
-  },
-  {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce site with features like product search, cart management, and a secure checkout process.',
-    image: 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1472',
-    tags: ['Node.js', 'React', 'PostgreSQL'],
-  },
-  {
-    title: 'Portfolio Website V1',
-    description: 'My first personal portfolio website, built from the ground up to showcase my skills and projects in a creative way.',
-    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1470',
-    tags: ['JavaScript', 'HTML', 'CSS'],
-  },
-];
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -32,6 +12,16 @@ const itemVariants = {
 };
 
 export default function ProjectsSection({ onOpenPopup }) {
+  const [featuredProjects, setFeaturedProjects] = useState([]);
+
+  useEffect(() => {
+    fetch('/projects.json')
+     .then((response) => response.json())
+     .then((data) => {
+      setFeaturedProjects(data.slice(0, 3));
+     })
+     .catch((error) => console.error("Error fetching featured projects:", error));
+    }, []);
   return (
     <section id="projects" className="py-24 px-4 bg-gray-900/50">
       <motion.div
@@ -52,11 +42,13 @@ export default function ProjectsSection({ onOpenPopup }) {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full"
           variants={sectionVariants}
         >
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.map((project) => (
             // 1. Changed motion.div to motion.a and added href="#"
             <motion.a
-              key={index}
-              href="#"
+              key={project.id}
+              href={project.url}
+              target='_blank'
+              rel='noopener noreferrer'
               className="block bg-gray-800 rounded-lg overflow-hidden shadow-lg"
               variants={itemVariants}
               // 2. Added whileHover and transition props for the hover effect
